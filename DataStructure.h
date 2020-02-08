@@ -20,6 +20,7 @@ public:
     virtual Node<T>* popOpen() = 0;
     virtual void pushOpen(Node<T>* node) = 0;
     virtual Node<T>* getTop() = 0;
+    virtual bool isInOpen(Node<T>* node) = 0;
     virtual bool isClosedEmpty() { return closedList.empty(); }
     virtual Node<T>* popClosed() { return closedList.pop_back(); }
     virtual void pushClosed(Node<T>* node) { closedList.push_back(node); }

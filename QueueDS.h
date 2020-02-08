@@ -39,14 +39,22 @@ public:
     // Get the queue size
     virtual unsigned long size() { openList.size(); }
 
+    virtual bool isInOpen(Node<T>* node) { return findInOpen(node) != 0; }
+
+    virtual void eraseFromOpen(Node<T>* node)
+    {
+        if (findInOpen(node) != 0)
+            delete(node);
+    }
+
     // Check if node is found in queue
-    virtual bool isInClosed(Node<T>* node)
+    virtual Node<T>* findInOpen(Node<T>* node)
     {
         // A vector to store in the nodes in the queue
         vector<Node<T>*> nodes;
 
         // Assuming the node isn't found
-        bool isFound = false;
+        Node<T>* goalNode = 0;
 
         // A temp node to store info
         Node<T>* currNode;
@@ -63,10 +71,10 @@ public:
         {
             openList.push(nodes[i]);
             if (nodes[i] == node)
-                isFound = true;
+                goalNode = nodes[i];
         }
 
-        return isFound;
+        return goalNode;
     }
 };
 

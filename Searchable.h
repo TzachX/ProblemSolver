@@ -6,13 +6,17 @@
 #define EX4_SEARCHABLE_H
 
 #include "Node.h"
+#include <vector>
+using namespace std;
 // Algorithm functionality
 template <typename T>
 class Searchable
 {
 public:
-    virtual Node<T> getStartingNode();
-    virtual Node<T> getEndingNode();
+    virtual Node<T>* getStartingNode() = 0;
+    virtual Node<T>* getEndingNode() = 0;
+    virtual vector<Node<T>*> getPaths(Node<T>* node) = 0;
+    virtual vector<Node<T>*> getPaths(Node<T>* start, Node<T>* end) = 0;
     virtual ~Searchable(){}
 };
 
