@@ -3,7 +3,6 @@ file(REMOVE_RECURSE
   "CMakeFiles/Ex4.dir/MatrixSearchable.cpp.o"
   "CMakeFiles/Ex4.dir/MySerialServer.cpp.o"
   "CMakeFiles/Ex4.dir/MyTestClientHandler.cpp.o"
-  "CMakeFiles/Ex4.dir/Node.cpp.o"
   "CMakeFiles/Ex4.dir/StringReverser.cpp.o"
   "Ex4"
   "Ex4.pdb"

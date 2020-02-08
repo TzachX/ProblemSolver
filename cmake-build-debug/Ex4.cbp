@@ -132,10 +132,10 @@
 		<Unit filename="/home/ardeus/CLionProjects/Ex4/MyTestClientHandler.h">
 			<Option target="Ex4"/>
 		</Unit>
-		<Unit filename="/home/ardeus/CLionProjects/Ex4/Node.cpp">
+		<Unit filename="/home/ardeus/CLionProjects/Ex4/Node.h">
 			<Option target="Ex4"/>
 		</Unit>
-		<Unit filename="/home/ardeus/CLionProjects/Ex4/Node.h">
+		<Unit filename="/home/ardeus/CLionProjects/Ex4/PathSolver.h">
 			<Option target="Ex4"/>
 		</Unit>
 		<Unit filename="/home/ardeus/CLionProjects/Ex4/PriorityQueueDS.h">

@@ -16,7 +16,7 @@ private:
     PriorityQueueDS<T> pq;
 public:
     // Override to the Searcher interface
-    vector<Node<T>> search (Searchable<T>* searchable)
+    vector<Node<T>*> search (Searchable<T>* searchable)
     {
         this->EvalNodesCount = 0;
 

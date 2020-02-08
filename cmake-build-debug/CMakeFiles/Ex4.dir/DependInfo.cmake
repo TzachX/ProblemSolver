@@ -8,7 +8,6 @@ set(CMAKE_DEPENDS_CHECK_CXX
   "/home/ardeus/CLionProjects/Ex4/MatrixSearchable.cpp" "/home/ardeus/CLionProjects/Ex4/cmake-build-debug/CMakeFiles/Ex4.dir/MatrixSearchable.cpp.o"
   "/home/ardeus/CLionProjects/Ex4/MySerialServer.cpp" "/home/ardeus/CLionProjects/Ex4/cmake-build-debug/CMakeFiles/Ex4.dir/MySerialServer.cpp.o"
   "/home/ardeus/CLionProjects/Ex4/MyTestClientHandler.cpp" "/home/ardeus/CLionProjects/Ex4/cmake-build-debug/CMakeFiles/Ex4.dir/MyTestClientHandler.cpp.o"
-  "/home/ardeus/CLionProjects/Ex4/Node.cpp" "/home/ardeus/CLionProjects/Ex4/cmake-build-debug/CMakeFiles/Ex4.dir/Node.cpp.o"
   "/home/ardeus/CLionProjects/Ex4/StringReverser.cpp" "/home/ardeus/CLionProjects/Ex4/cmake-build-debug/CMakeFiles/Ex4.dir/StringReverser.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")

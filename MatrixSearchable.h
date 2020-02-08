@@ -20,9 +20,9 @@ public:
 
     ~MatrixSearchable(){ delete(end); }
 
-    Node<pair<int, int>>* getStartNode() { return start; }
+    Node<pair<int, int>>* getStartingNode() { return start; }
 
-    Node<pair<int, int>>* getEndNode() { return end; }
+    Node<pair<int, int>>* getEndingNode() { return end; }
 
     vector<Node<pair<int, int>>*> getPaths(Node<pair<int, int>>* node);
 

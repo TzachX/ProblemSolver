@@ -231,33 +231,6 @@ MyTestClientHandler.cpp.s:
 	$(MAKE) -f CMakeFiles/Ex4.dir/build.make CMakeFiles/Ex4.dir/MyTestClientHandler.cpp.s
 .PHONY : MyTestClientHandler.cpp.s
 
-Node.o: Node.cpp.o
-
-.PHONY : Node.o
-
-# target to build an object file
-Node.cpp.o:
-	$(MAKE) -f CMakeFiles/Ex4.dir/build.make CMakeFiles/Ex4.dir/Node.cpp.o
-.PHONY : Node.cpp.o
-
-Node.i: Node.cpp.i
-
-.PHONY : Node.i
-
-# target to preprocess a source file
-Node.cpp.i:
-	$(MAKE) -f CMakeFiles/Ex4.dir/build.make CMakeFiles/Ex4.dir/Node.cpp.i
-.PHONY : Node.cpp.i
-
-Node.s: Node.cpp.s
-
-.PHONY : Node.s
-
-# target to generate assembly for a file
-Node.cpp.s:
-	$(MAKE) -f CMakeFiles/Ex4.dir/build.make CMakeFiles/Ex4.dir/Node.cpp.s
-.PHONY : Node.cpp.s
-
 StringReverser.o: StringReverser.cpp.o
 
 .PHONY : StringReverser.o
@@ -306,9 +279,6 @@ help:
 	@echo "... MyTestClientHandler.o"
 	@echo "... MyTestClientHandler.i"
 	@echo "... MyTestClientHandler.s"
-	@echo "... Node.o"
-	@echo "... Node.i"
-	@echo "... Node.s"
 	@echo "... StringReverser.o"
 	@echo "... StringReverser.i"
 	@echo "... StringReverser.s"
