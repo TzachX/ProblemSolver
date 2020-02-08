@@ -84,6 +84,12 @@
 				</MakeCommands>
 			</Target>
 		</Build>
+		<Unit filename="/home/ardeus/CLionProjects/Ex4/AStarSearcher.h">
+			<Option target="Ex4"/>
+		</Unit>
+		<Unit filename="/home/ardeus/CLionProjects/Ex4/BFSSearcher.h">
+			<Option target="Ex4"/>
+		</Unit>
 		<Unit filename="/home/ardeus/CLionProjects/Ex4/BestFirstSearcher.h">
 			<Option target="Ex4"/>
 		</Unit>
@@ -91,6 +97,9 @@
 			<Option target="Ex4"/>
 		</Unit>
 		<Unit filename="/home/ardeus/CLionProjects/Ex4/ClientHandler.h">
+			<Option target="Ex4"/>
+		</Unit>
+		<Unit filename="/home/ardeus/CLionProjects/Ex4/DFSSearcher.h">
 			<Option target="Ex4"/>
 		</Unit>
 		<Unit filename="/home/ardeus/CLionProjects/Ex4/DataStructure.h">

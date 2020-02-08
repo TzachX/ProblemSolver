@@ -1,16 +1,15 @@
 //
-// Created by ardeus on 02/02/2020.
+// Created by ardeus on 08/02/2020.
 //
 
-#ifndef EX4_BESTFIRSTSEARCHER_H
-#define EX4_BESTFIRSTSEARCHER_H
+#ifndef EX4_ASTARSEARCHER_H
+#define EX4_ASTARSEARCHER_H
 
 
 #include "TraceBackSearcher.h"
 #include "PriorityQueueDS.h"
-
 template <typename T>
-class BestFirstSearcher : public TraceBackSearcher<T>
+class AStarSearcher : public TraceBackSearcher<T>
 {
 private:
     PriorityQueueDS<T> pq;
@@ -41,7 +40,7 @@ public:
             }
 
 
-            vector<Node<T>*> paths = searchable->getPaths(min);
+            vector<Node<T>*> paths = searchable->getPaths(min, endNode);
             for (Node<T>* currNode : paths)
             {
                 if (!pq.isInClosed(currNode) && !pq.isInOpen(currNode))
@@ -66,7 +65,8 @@ public:
             return newVector;
         }
     }
+
 };
 
 
-#endif //EX4_BESTFIRSTSEARCHER_H
+#endif //EX4_ASTARSEARCHER_H
