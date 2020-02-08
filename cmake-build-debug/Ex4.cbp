@@ -114,6 +114,12 @@
 		<Unit filename="/home/ardeus/CLionProjects/Ex4/Main.h">
 			<Option target="Ex4"/>
 		</Unit>
+		<Unit filename="/home/ardeus/CLionProjects/Ex4/MatrixSearchable.cpp">
+			<Option target="Ex4"/>
+		</Unit>
+		<Unit filename="/home/ardeus/CLionProjects/Ex4/MatrixSearchable.h">
+			<Option target="Ex4"/>
+		</Unit>
 		<Unit filename="/home/ardeus/CLionProjects/Ex4/MySerialServer.cpp">
 			<Option target="Ex4"/>
 		</Unit>

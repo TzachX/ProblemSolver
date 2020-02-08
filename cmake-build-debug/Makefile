@@ -150,6 +150,33 @@ FileCacheManager.cpp.s:
 	$(MAKE) -f CMakeFiles/Ex4.dir/build.make CMakeFiles/Ex4.dir/FileCacheManager.cpp.s
 .PHONY : FileCacheManager.cpp.s
 
+MatrixSearchable.o: MatrixSearchable.cpp.o
+
+.PHONY : MatrixSearchable.o
+
+# target to build an object file
+MatrixSearchable.cpp.o:
+	$(MAKE) -f CMakeFiles/Ex4.dir/build.make CMakeFiles/Ex4.dir/MatrixSearchable.cpp.o
+.PHONY : MatrixSearchable.cpp.o
+
+MatrixSearchable.i: MatrixSearchable.cpp.i
+
+.PHONY : MatrixSearchable.i
+
+# target to preprocess a source file
+MatrixSearchable.cpp.i:
+	$(MAKE) -f CMakeFiles/Ex4.dir/build.make CMakeFiles/Ex4.dir/MatrixSearchable.cpp.i
+.PHONY : MatrixSearchable.cpp.i
+
+MatrixSearchable.s: MatrixSearchable.cpp.s
+
+.PHONY : MatrixSearchable.s
+
+# target to generate assembly for a file
+MatrixSearchable.cpp.s:
+	$(MAKE) -f CMakeFiles/Ex4.dir/build.make CMakeFiles/Ex4.dir/MatrixSearchable.cpp.s
+.PHONY : MatrixSearchable.cpp.s
+
 MySerialServer.o: MySerialServer.cpp.o
 
 .PHONY : MySerialServer.o
@@ -270,6 +297,9 @@ help:
 	@echo "... FileCacheManager.o"
 	@echo "... FileCacheManager.i"
 	@echo "... FileCacheManager.s"
+	@echo "... MatrixSearchable.o"
+	@echo "... MatrixSearchable.i"
+	@echo "... MatrixSearchable.s"
 	@echo "... MySerialServer.o"
 	@echo "... MySerialServer.i"
 	@echo "... MySerialServer.s"

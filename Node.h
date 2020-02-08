@@ -9,6 +9,9 @@ template <typename T>
 class Node {
 private:
     bool hasBeenVisited;
+    Node<T> *source;
+    T nodeValue;
+    double cost;
 public:
     bool isHasBeenVisited() const {
         return hasBeenVisited;
@@ -42,12 +45,13 @@ public:
         Node::cost = cost;
     }
 
-private:
-    Node<T> *source;
-    T nodeValue;
-    double cost;
-public:
-    Node();
+    Node(T value, double nodeCost, Node<T>* nodeSource)
+    {
+        this->nodeValue = value;
+        this->cost = nodeCost;
+        this->source = nodeSource;
+        this->hasBeenVisited = false;
+    }
 };
 
 
