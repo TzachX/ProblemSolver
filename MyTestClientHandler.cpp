@@ -3,21 +3,49 @@
 //
 
 #include "MyTestClientHandler.h"
+#include <strings.h>
+#include <unistd.h>
 
-void server_side::MyTestClientHandler::handleClient(istream input, ostream output)
-{
-    for (string currString; getline(input, currString);)
-    {
-        if (cm->isSolutionFound(currString))
-            output << currString;
-        else
-        {
-            string solution = solver->solve(currString);
-            cm->storeSolution(currString, solution);
-            output << solution;
+/***
+ * test client handler, see documentation in original assignment
+ * @param socket
+ */
+void server_side::MyTestClientHandler::handleClient(int socket) {
+    char buffer[1024];
+    bzero(buffer, 1024);
+    string prob;
+    string sol = "";
+
+    int valread;
+    while (true) {
+        valread = read(socket, buffer, sizeof(buffer));
+        if (valread == -1) {
+            cout << "read error\n";
+            return;
         }
+        prob = buffer;
+        prob = prob.erase(prob.find('\n'));
+
+        if (prob == "end") {
+            break;
+        }
+        if (prob.length() < 1) {
+            continue;
+        }
+
+        //checks if a problem is within the Cache
+        if (cm->isSolutionFound(prob))
+            sol = cm->getSolution(prob);
+        else {
+            //creates a solution if non existant
+            sol = solver->solve(prob);
+            cm->storeSolution(prob, sol);
+        }
+
+        sol+="\n";
+        write(socket, sol.c_str(),sol.length());
+        close(socket);
     }
+
 }
 
-server_side::MyTestClientHandler::MyTestClientHandler(server_side::Solver<string, string> *solver,
-                                                      server_side::CacheManager *cm) : solver(solver), cm(cm) {}

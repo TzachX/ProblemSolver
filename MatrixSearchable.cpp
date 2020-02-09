@@ -1,10 +1,12 @@
-//
-// Created by ardeus on 08/02/2020.
-//
 
 #include "MatrixSearchable.h"
 #include <math.h>
 
+
+/***
+ * creates a matrix searchable structure
+ * @param matrixTable a matrix including it's parameters
+ */
 MatrixSearchable::MatrixSearchable(const vector<vector<double>> &matrixTable)
 {
     // initialize the matrix
@@ -23,6 +25,11 @@ MatrixSearchable::MatrixSearchable(const vector<vector<double>> &matrixTable)
     end = new Node<pair<int, int>>(goaler, endCost, nullptr);
 }
 
+/***
+ * gets all the paths to a given node
+ * @param node  -  a given node
+ * @return paths for said node
+ */
 vector<Node<pair<int, int>> *> MatrixSearchable::getPaths(Node<pair<int, int>> *node)
 {
     unsigned long numOfRows = matrix.size() - 2;
@@ -71,7 +78,13 @@ vector<Node<pair<int, int>> *> MatrixSearchable::getPaths(Node<pair<int, int>> *
 
     return adj;
 }
-
+/***
+ * see notes above about getPaths
+ * this method returns all the paths for 2 given nodes
+ * @param curr
+ * @param goal
+ * @return
+ */
 vector<Node<pair<int, int>> *> MatrixSearchable::getPaths(Node<pair<int, int>> *curr, Node<pair<int, int>> *goal) {
     unsigned long numOfRows = matrix.size() - 2;
     unsigned long numOfColumns = matrix[1].size();

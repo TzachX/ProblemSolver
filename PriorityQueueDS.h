@@ -1,81 +1,49 @@
 //
-// Created by ardeus on 03/02/2020.
+// Created by ardeus on 09/02/2020.
 //
 
-#ifndef EX4_PRIORITYQUEUEDS_H
-#define EX4_PRIORITYQUEUEDS_H
+#ifndef FLIGHTSIM2ND_PRIORITYQUEUEDS_H
+#define FLIGHTSIM2ND_PRIORITYQUEUEDS_H
 
 #include "DataStructure.h"
+#include "OrganizedPriorityQueue.h"
+#include "Node.h"
 #include <queue>
 
-/**
+/*
  * PriorityQueueDS class
  */
 template <typename T>
-class PriorityQueueDS : public DataStructure<T> {
+class PriorityQueueDS : public DataStructure<T>
+{
 private:
     // The open list of the DS, in this case - Queue
-    priority_queue<Node<T>*> openList;
+    OrganizedPriorityQueue<T> openList;
 public:
     // Get status of the queue
-    virtual bool isOpenEmpty() { return openList.empty(); }
+    virtual bool isOpenEmpty() { return openList.isOpenEmpty(); }
 
     // Get top value of the queue
-    virtual Node<T>* getTop() { return openList.top(); }
+    virtual Node<T>* getTop() { return openList.getTop(); }
 
     // Push value to queue
-    virtual void pushOpen(Node<T>* node) { openList.push(node); }
+    virtual void pushOpen(Node<T>* node) { openList.pushOpen(node); }
 
     // Pop top value from the queue
-    virtual Node<T>* popOpen()
-    {
-        Node<T> node = openList.top();
-        openList.pop();
-        return node;
-    }
+    virtual Node<T>* popOpen() { openList.popOpen(); }
 
     // Get the queue size
     virtual unsigned long size() { openList.size(); }
 
-    // Check if node is found in queue
-    virtual bool isInOpen(Node<T>* node) { return findInOpen(node) != 0; }
+    // Find the given node in the open list
+    Node<T>* findInOpen(Node<T>* state) { return openList.findInOpen(state); }
 
-    virtual void eraseFromOpen(Node<T>* node)
-    {
-        if (findInOpen(node) != 0)
-            delete(node);
-    }
+    // Erase the given node in the open list
+    void eraseFromOpen(Node<T>* state) { openList.eraseFromOpen(state); }
 
-    // Check if node is found in queue
-    virtual Node<T>* findInOpen(Node<T>* node)
-    {
-        // A vector to store in the nodes in the queue
-        vector<Node<T>*> nodes;
-
-        // Assuming the node isn't found
-        Node<T>* goalNode = 0;
-
-        // A temp node to store info
-        Node<T>* currNode;
-
-        // Going over the queue
-        while (!isOpenEmpty())
-        {
-            currNode = openList.pop();
-            nodes.push_back(currNode);
-        }
-
-        // Checking if the node exists in vector while restoring the queue
-        for (int i = 0; i < nodes.size(); i++)
-        {
-            openList.push(nodes[i]);
-            if (nodes[i] == node)
-                goalNode = nodes[i];
-        }
-
-        return goalNode;
-    }
+    // Checks if the given node is in the open list
+    bool isInOpen(Node<T>* state) { return openList.isInOpen(state); }
 };
 
 
-#endif //EX4_PRIORITYQUEUEDS_H
+#endif //FLIGHTSIM2ND_PRIORITYQUEUEDS_H

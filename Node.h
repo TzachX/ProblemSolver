@@ -13,6 +13,15 @@ private:
     T nodeValue;
     double cost;
 public:
+    bool operator==(Node<T> n){
+        return (this->getNodeValue() == n.getNodeValue());
+    }
+
+    bool operator!=(Node<T> n){
+        return (this->getNodeValue() != n.getNodeValue());
+
+    }
+
     bool isHasBeenVisited() const {
         return hasBeenVisited;
     }

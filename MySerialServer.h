@@ -6,10 +6,16 @@
 #define EX4_MYSERIALSERVER_H
 
 
+#include <thread>
+#include <vector>
 #include "Server.h"
-
+using namespace std;
 namespace server_side {
     class MySerialServer : public Server {
+        //holds a run boolean and a socket
+        bool shouldStop = false;
+        int sock;
+
     public:
         MySerialServer();
 

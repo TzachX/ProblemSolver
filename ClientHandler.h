@@ -11,7 +11,7 @@ namespace server_side
 {
     class ClientHandler {
     public:
-        virtual void handleClient(istream input, ostream output);
+        virtual void handleClient(int socket)=0;
         virtual ~ClientHandler(){}
     };
 }

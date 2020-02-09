@@ -11,6 +11,7 @@
 namespace server_side {
     class FileCacheManager : public CacheManager {
     private:
+        //a cache is comprised of a hash map, a file name and a mutex to handle data
         unordered_map<string, string> solutionMap;
         string fileName;
         pthread_mutex_t mutex;
