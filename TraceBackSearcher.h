@@ -36,12 +36,12 @@ protected:
     virtual void eraseData(vector<Node<T>*> output, DataStructure<T>* ds)
     {
         Node<T> *currNode;
-        while (!ds->emptyOpen()) {
-            delete (ds->popFromOpen());
+        while (!ds->isOpenEmpty()) {
+            delete (ds->popOpen());
         }
-        while (!ds->emptyClosed())
+            while (!ds->isClosedEmpty())
         {
-            currNode = ds->popFromClosed();
+            currNode = ds->popClosed();
             for (int i = 0; i < output.size(); i++)
             {
                 if (output[i] == currNode)

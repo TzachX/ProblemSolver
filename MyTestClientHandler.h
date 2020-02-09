@@ -18,12 +18,17 @@ namespace server_side
         Solver<string, string> *solver;
         CacheManager *cm;
     public:
-        void handleClient(istream input, ostream output);
+        void handleClient(int socket);
 
         MyTestClientHandler();
 
-        MyTestClientHandler(Solver<string, string> *solver,
-                            CacheManager *cm);
+       MyTestClientHandler(Solver<string, string> *solver, CacheManager *cm) : solver(solver), cm(cm) {}
+
+
+        ~MyTestClientHandler(){
+            delete(solver);
+            delete(cm);
+        }
     };
 }
 

@@ -22,9 +22,20 @@ public:
     virtual Node<T>* getTop() = 0;
     virtual bool isInOpen(Node<T>* node) = 0;
     virtual bool isClosedEmpty() { return closedList.empty(); }
-    virtual Node<T>* popClosed() { return closedList.pop_back(); }
+    virtual Node<T>* popClosed() {
+        Node<T>* temp = closedList.back();
+        closedList.pop_back();
+        return  temp;}
     virtual void pushClosed(Node<T>* node) { closedList.push_back(node); }
-    virtual bool isInClosed(Node<T>* node) { return find(closedList.begin(), closedList.end(), node) != closedList.end(); }
+    virtual bool isInClosed(Node<T>* node)
+    {
+        for (int i = 0; i < closedList.size(); i++) {
+            if (*closedList[i] == *node) {
+                return true;
+            }
+        }
+        return false;
+    }
 };
 
 

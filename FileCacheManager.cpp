@@ -5,6 +5,11 @@
 #include <fstream>
 #include "FileCacheManager.h"
 
+/***
+ * searches a solution in the cache and file system
+ * @param p problem
+ * @return if the solution was found
+ */
 bool server_side::FileCacheManager::isSolutionFound(string p)
 {
     // Locking the thread to search for solution without interferences
@@ -19,7 +24,11 @@ bool server_side::FileCacheManager::isSolutionFound(string p)
     // Return if solution found
     return it != solutionMap.end();
 }
-
+/***
+ * stores a solution and a problem, as pair, in the cache and filesystem
+ * @param p problem
+ * @param s solution
+ */
 void server_side::FileCacheManager::storeSolution(string p, string s) {
     // Locking the thread to store the solution without interferences
     pthread_mutex_lock(&mutex);
@@ -52,6 +61,12 @@ void server_side::FileCacheManager::storeSolution(string p, string s) {
     pthread_mutex_unlock(&mutex);
 }
 
+
+/***
+ * returns a solution to a given problem
+ * @param p - given problem
+ * @return solution to said problem
+ */
 string server_side::FileCacheManager::getSolution(string p)
 {
     // Check if solution exists
@@ -63,21 +78,40 @@ string server_side::FileCacheManager::getSolution(string p)
     throw invalid_argument("The solution to this problem doesn't exist in the stack");
 }
 
+/***
+ * creates a file cache manager using a solution file (if exists)
+ * @param name - file name for the solution
+ */
 server_side::FileCacheManager::FileCacheManager(string name)
 {
     string problem, solution;
+    string temp;
+    bool isSol=false;
     fileName = name;
     ifstream inputFile(fileName);
     if (inputFile.is_open()) {
-        while (getline(inputFile, problem))
+        while (getline(inputFile, temp))
+        //disassembly of the matrix inside said file
         {
-            if (getline(inputFile, solution))
-                solutionMap[problem] = solution;
-            else
-                throw invalid_argument("Error in file format");
+            if(!isSol) {
+                if (temp == "end") {
+                    problem += "end";
+                    isSol=true;
+                }
+                problem+=temp;
+                problem+="\n";
+
+            }
+            else {
+                solution += temp;
+
+            }
         }
+        //assigning the problem to it's solution
+        solutionMap[problem] = solution;
         inputFile.close();
     }
+
 }
 
 

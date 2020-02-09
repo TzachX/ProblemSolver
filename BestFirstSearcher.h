@@ -6,17 +6,22 @@
 #define EX4_BESTFIRSTSEARCHER_H
 
 
+
 #include "TraceBackSearcher.h"
 #include "PriorityQueueDS.h"
 
 template <typename T>
+/***
+ * best Sercher algorithm
+ * @tparam T any object node
+ */
 class BestFirstSearcher : public TraceBackSearcher<T>
 {
 private:
     PriorityQueueDS<T> pq;
 public:
     // Override to the Searcher interface
-    vector<Node<T>> search (Searchable<T>* searchable)
+    vector<Node<T>*> search (Searchable<T>* searchable)
     {
         this->EvalNodesCount = 0;
 
@@ -60,13 +65,11 @@ public:
                 else
                     delete(currNode);
             }
-
-            vector<Node<T>*> newVector;
-            this->eraseData(newVector, &pq);
-            return newVector;
         }
+        vector<Node<T>*> newVector;
+        this->eraseData(newVector, &pq);
+        return newVector;
     }
 };
-
 
 #endif //EX4_BESTFIRSTSEARCHER_H
